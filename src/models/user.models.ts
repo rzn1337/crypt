@@ -21,8 +21,8 @@ export interface User extends Document {
     username: string;
     email: string;
     password: string;
-    verifyCode: string;
-    verifyCodeExpiry: Date;
+    verificationCode: string;
+    verificationCodeExpiry: Date;
     isVerified: boolean;
     isAcceptingMessages: boolean;
     messages: Message[];
@@ -45,11 +45,11 @@ const userSchema: Schema<User> = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
     },
-    verifyCode: {
+    verificationCode: {
         type: String,
         required: [true, "Verify Code is required"],
     },
-    verifyCodeExpiry: {
+    verificationCodeExpiry: {
         type: Date,
         required: [true, "Verify Code Expiry is required"],
     },
